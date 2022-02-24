@@ -166,6 +166,11 @@ such as [0-9&&[^345]]. This example creates a single character class that matche
 everything from 0 to 9, except the numbers 3, 4, and 5.
 
 ```
+
+
+
+
+
 Enter your regex: [2-8&&[4-6]]
 Enter input string to search: 3
 No match found.
@@ -185,4 +190,83 @@ I found the text "6" starting at index 0 and ending at index 1.
 Enter your regex: [2-8&&[4-6]]
 Enter input string to search: 7
 No match found.
+```
+
+# Predefined Character Classes
+
+The Pattern API contains a number of useful predefined character classes, which offer convenient shorthands for commonly used regular expressions:
+
+
+
+| Construct | Description                                           |
+|-----------|-------------------------------------------------------|
+| `.`       | Any character (may or may not match line terminators) |
+| `\d`      | A digit:`[0-9]`                                       |
+| `\D`      | A non-digit:`[^0-9]`                                  |
+| `\s`      | A whitespace character:`[ \t\n\x0B\f\r]`              |
+| `\S`      | A non-whitespace character:`[^\s]`                    |
+| `\w`      | A word character:`[a-zA-Z_0-9]`                       |
+| `\W`      | A non-word character:`[^\w]`                          |
+
+
+```
+Enter your regex: .
+Enter input string to search: @
+I found the text "@" starting at index 0 and ending at index 1.
+
+Enter your regex: . 
+Enter input string to search: 1
+I found the text "1" starting at index 0 and ending at index 1.
+
+Enter your regex: .
+Enter input string to search: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Enter your regex: \d
+Enter input string to search: 1
+I found the text "1" starting at index 0 and ending at index 1.
+
+Enter your regex: \d
+Enter input string to search: a
+No match found.
+
+Enter your regex: \D
+Enter input string to search: 1
+No match found.
+
+Enter your regex: \D
+Enter input string to search: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Enter your regex: \s
+Enter input string to search:  
+I found the text " " starting at index 0 and ending at index 1.
+
+Enter your regex: \s
+Enter input string to search: a
+No match found.
+
+Enter your regex: \S
+Enter input string to search:  
+No match found.
+
+Enter your regex: \S
+Enter input string to search: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Enter your regex: \w
+Enter input string to search: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Enter your regex: \w
+Enter input string to search: !
+No match found.
+
+Enter your regex: \W
+Enter input string to search: a
+No match found.
+
+Enter your regex: \W
+Enter input string to search: !
+I found the text "!" starting at index 0 and ending at index 1.
 ```
